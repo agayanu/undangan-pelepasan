@@ -9,25 +9,22 @@
     <title>Graduation Ceremony</title>
 
     <meta property="og:title" content="Graduation Ceremony">
-    <meta property="og:description" content="Undangan Pernikahan Sherly & Daeng - Sabtu, 21 Maret 2020 di RM Pondok Kenanga, Jakasampurna Bekasi">
     <meta property="og:locale" content="id_ID" />
-    <meta property="og:image" content="https://sherly.dae.ng/image/sherly-daeng-wedding-thumbnail.png">
-    <meta property="og:url" content="http://sherly.dae.ng/index.html">
     <meta name="twitter:card" content="summary_large_image">
     <!-- Bulma Version 0.8.x-->
     <link rel="stylesheet" href="https://unpkg.com/bulma@0.8.0/css/bulma.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/bulma-tooltip@0.1.5/dist/bulma-tooltip.min.css" />
     <link rel="stylesheet" type="text/css" href="css/menikah.css" />
     <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css" />
-    <script
+    <!-- <script
       src="https://kit.fontawesome.com/2828f7885a.js"
       integrity="sha384-WAsFbnLEQcpCk8lM1UTWesAf5rGTCvb2Y+8LvyjAAcxK1c3s5c0L+SYOgxvc6PWG"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"></script> -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="js/jquery.coundown.js"></script>
     <link rel="icon" type="image/png" href="image/logopesat-removebg.png" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23064379-20"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23064379-20"></script> -->
     <!-- Begin Script for Countdown -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -50,7 +47,11 @@
   </head>
 
   <body style="background-color: #F1F0E8;">
-
+    <!-- <audio style="display:none;" id="idAudio"> -->
+    <audio id="idAudio">
+      <source src="music/sound1.mp3" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
     <!-- Begin Preloader -->
     <div class="preloader-wrapper">
       <div class="preloader">
@@ -427,12 +428,21 @@
     <script src="js/menikah.js"></script>
     <link href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
       AOS.init({
         easing: "ease-out",
         duration: 800,
       });
+      Swal.fire({
+        confirmButtonText: 'KLIK DISINI UNTUK MEMBUKA UNDANGAN',
+        allowOutsideClick: false,
+        customClass: 'swal-wide'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          $("#idAudio").get(0).play();
+        }
+      });
     </script>
-
   </body>
 </html>
